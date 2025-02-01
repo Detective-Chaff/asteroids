@@ -24,6 +24,7 @@ class CircleShape(pygame.sprite.Sprite):
     
     def detect_collision(self, circle):
         collision = False
+        # find the distance from the center of the current calling object to the center of the passed in object
         distance = self.position.distance_to(circle.position)
         threshold = self.radius + circle.radius
 

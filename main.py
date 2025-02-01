@@ -55,7 +55,7 @@ def main():
             else:
                 for shot in shots:
                     if shot.detect_collision(asteroid):
-                        asteroid.kill()
+                        asteroid.split()
                         shot.kill()
 
 
@@ -64,6 +64,9 @@ def main():
             item.draw(screen)
         pygame.display.flip()
 
+        # the tick method returns the delta time(difference in time) between now and the last time the tick method is called (in seconds)
+        # by passing in 60 we are targeting a limited 60 frames per second refresh, to keep frames consistent and not tied to current cpu speed
+        # dividing the returned value from the tick call by 1000 we are converting from milliseconds to seconds
         delta_time = fps.tick(60) / 1000
 
 

@@ -43,10 +43,13 @@ class Player(CircleShape):
         if keys[pygame.K_SPACE]:
             self.shoot()
 
-    
+    # uses delta time from the from the tick method in main.py
+    # our new facing direction is PLAYER_TURN_SPEED * delta time
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
 
+    # uses delta time from the from the tick method in main.py
+    # our new postion is our current facing direction * PLAYER_SPEED * delta time
     def move(self, dt):
         forward = pygame.Vector2(0,1).rotate(self.rotation)
         self.position += forward * PLAYER_SPEED * dt
